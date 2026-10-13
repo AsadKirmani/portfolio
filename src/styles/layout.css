@@ -1,0 +1,277 @@
+.portfolio-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.page-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.purple-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 500px;
+  transform: translate(30%, 20%);
+  border-radius: 50%;
+  background: rgba(173, 109, 244, 0.5);
+  opacity: 0.5;
+  filter: blur(80px);
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  padding: 0 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+.wordmark {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 15px;
+
+  letter-spacing: -0.5px;
+}
+
+.wordmark span {
+  font-size: 21px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  font-style: italic;
+
+  letter-spacing: -4px;
+
+  color: var(--accent);
+
+  margin-right: 3px;
+}
+
+.wordmark b {
+  font-weight: 800;
+}
+
+.header-contact {
+  position: relative;
+  display: inline-flex;
+  padding: 1px;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+  color: #171717;
+}
+
+.header-contact::before {
+  content: "";
+  position: absolute;
+  inset: -300%;
+  z-index: -1;
+  background: conic-gradient(
+    from 90deg,
+    #e2cbff 0%,
+    #393bb2 25%,
+    #ad6df4 50%,
+    #393bb2 75%,
+    #e2cbff 100%
+  );
+  animation: header-gradient-spin 3s linear infinite;
+}
+
+.header-contact-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: background 0.5s ease;
+}
+
+.header-contact:hover .header-contact-inner {
+  background: #f7f2ff;
+}
+
+@keyframes header-gradient-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-contact::before {
+    animation: none;
+  }
+}
+
+.content-column {
+  width: min(100% - 48px, 656px);
+  margin: 102px auto 70px;
+  flex: 1;
+}
+
+.site-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 30px 22px;
+
+  font-size: 10px;
+
+  color: #555;
+}
+
+.site-footer span,
+.site-footer a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.site-footer span svg {
+  color: #ed3345;
+}
+
+.site-footer a {
+  letter-spacing: 0.04em;
+
+  color: #777;
+}
+
+.site-footer a:hover {
+  color: #111;
+}
+
+@media (min-width: 1000px) {
+  .content-column {
+    margin-top: 102px;
+  }
+
+  .site-header {
+    height: 78px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    height: 65px;
+    padding: 0 20px;
+  }
+
+  .content-column {
+    width: calc(100% - 40px);
+    margin-top: 87px;
+    margin-bottom: 50px;
+  }
+
+  .intro-section {
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+
+    gap: 7px;
+  }
+
+  h1 {
+    font-size: 29px;
+
+    letter-spacing: -1px;
+  }
+
+  .intro-copy,
+  .section-intro,
+  .contact-line,
+  .about-copy {
+    font-size: 12px;
+
+    line-height: 1.85;
+  }
+
+  .content-section {
+    margin-top: 37px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-description {
+    min-height: 0;
+  }
+
+  .project-stack {
+    margin-bottom: 10px;
+  }
+
+  .site-footer {
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 9px;
+  }
+
+  .tech-pill {
+    font-size: 10px;
+
+    padding: 5px 9px;
+  }
+
+  .intro-actions {
+    gap: 8px;
+  }
+
+  .button {
+    font-size: 11px;
+
+    padding: 0 12px;
+  }
+}
